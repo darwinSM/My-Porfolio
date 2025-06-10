@@ -1,0 +1,26 @@
+{% extends 'app_home/base.html' %}
+
+{% block title %} Message Detail {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 600px;">
+        <div class="card-header text-center">
+            <h4>Message Detail</h4>
+        </div>
+        <div class="card-body">
+            <p class="mb-1"><strong>Date Update:</strong> {{ message.updated_at|date:"d M Y, H:i" }}</p>
+            <p class="mb-1"><strong>Date Create:</strong> {{ message.created_at|date:"d M Y, H:i" }}</p>
+            <p><strong>Name:</strong> {{ message.name }}</p>
+            <p><strong>Email:</strong> {{ message.email }}</p>
+            <p><strong>Message:</strong></p>
+            <p>{{ message.message }}</p>
+            <hr>
+            <p class="text-muted"><strong>Sent on:</strong> {{ message.created_at|date:"F d, Y H:i" }}</p>
+        </div>
+        <div class="card-footer text-end">
+            <a href="{% url 'contact_messages_list' %}" class="btn btn-secondary">Back to Messages</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

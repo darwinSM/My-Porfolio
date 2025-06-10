@@ -1,0 +1,11 @@
+p{
+    text-align:justify;
+}
+
+.custom-padding {
+    padding-top: 3rem;
+    padding-left: 6rem; 
+    padding-right: 6rem;
+    padding-bottom: 2rem;
+}
+

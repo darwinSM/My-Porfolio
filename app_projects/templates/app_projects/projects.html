@@ -1,0 +1,65 @@
+{% extends 'app_home/base.html' %}
+
+{% block title %}My Projects{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h2 class="mb-4 text-center">My Projects</h2>
+    {% if projects %}
+        <div class="row g-4">
+            {% for project in projects %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow rounded-4 border-0 project-card">
+                        <div class="card-header">
+                            <h5 class="card-title text-center">
+                                <i class="fa-solid fa-diagram-project me-2"></i>{{ project.title }}
+                            </h5>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <p class="card-text text-center">
+                                {{ project.description|truncatewords:20 }}
+                            </p>
+                            <div class="mb-2 text-center">
+                                {% for tech in project.project_technologies.all %}
+                                    <span class="badge 
+                                        {% if tech.category == 'language' %}bg-primary
+                                        {% elif tech.category == 'framework' %}bg-success
+                                        {% elif tech.category == 'tool' %}bg-warning text-dark
+                                        {% else %}bg-secondary
+                                        {% endif %}
+                                        me-1 mb-1" 
+                                        title="{{ tech.description }}">
+                                        {{ tech.title }}
+                                    </span>
+                                {% endfor %}
+                            </div>
+                            <p class="text-muted text-center mb-1 small">
+                                Created: {{ project.created_at|date:"M d, Y" }}
+                            </p>
+                            <p class="text-muted text-center small">
+                                Updated: {{ project.updated_at|date:"M d, Y" }}
+                            </p>
+                            <div class="text-center mt-auto">
+                                <a href="{% url 'project_detail' project.id %}" class="btn btn-outline-primary btn-sm mt-2 w-50">
+                                    View Detail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning text-center" role="alert">
+            No projects to display
+        </div>    
+    {% endif %}
+</div>
+
+<style>
+    .project-card:hover {
+        transform: scale(1.02);
+        transition: all 0.3s ease-in-out;
+    }
+</style>
+{% endblock %}

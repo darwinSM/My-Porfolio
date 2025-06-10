@@ -1,0 +1,41 @@
+{% extends 'app_home/base.html' %}
+
+{% block title %} Contact_messages {% endblock %}
+
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card w-100" style="max-width: 700px;">
+        <div class="card-header">
+            <h4 class="text-center mb-0">Your Contact Messages</h4>
+        </div>
+            {% if object_list %}
+                <ul class="list-group">
+                    {% for message in object_list %}
+                        <div class="card-body">
+                            <li class="list-group-item">
+                                {% if message.id in messages_updated %}
+                                    <p class="mb-1"><strong>Date Updated:</strong> {{ message.updated_at|date:"d M Y, H:i" }}</p>
+                                {% endif %}
+                                <p class="mb-1"><strong>Date Created:</strong> {{ message.created_at|date:"d M Y, H:i" }}</p>
+                                <p class="mb-1"><strong>Name:</strong> {{ message.name }}</p>
+                                <p class="mb-1"><strong>Email:</strong> {{ message.email }}</p>
+                                <p class="mb-0"><strong>Message:</strong><br>{{ message.message|truncatechars:30 }}</p>
+                            </li>
+                        </div>
+                        <div class="card-footer py-2">
+                            <div class="justify-content-center align-item-center">
+                                <a href="{% url 'contact_message_detail' message.pk %}" class="btn btn-primary">Detail</a>
+                                <a href="{% url 'contact_message_update' message.pk %}" class="btn btn-success">Update</a>
+                                <a href="{% url 'contact_message_delete' message.pk %}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <div class="alert alert-info text-center">
+                    You haven't sent any messages yet.
+                </div>
+            {% endif %}
+    </div>
+</div>
+{% endblock %}

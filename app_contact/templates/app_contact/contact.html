@@ -1,0 +1,61 @@
+{% extends 'app_home/base.html' %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'app_contact/css/styles_contact_form.css' %}">
+{% endblock %}
+
+
+{% block title %} Contact {% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+
+    <!-- Columna izquierda: Información de contacto -->
+    <div class="col-md-5 mb-4">
+      <div class="card shadow h-100">
+        <div class="card-header text-center bg-dark text-white">
+          <h4>Contact Info</h4>
+        </div>
+        <div class="card-body">
+          <p><i class="fas fa-envelope me-2"></i> darwin@example.com</p>
+          <p><i class="fab fa-linkedin me-2"></i> <a href="{{ linkedin_url }}" target="_blank">linkedin.com/in/darwin</a></p>
+          <p><i class="fab fa-github me-2"></i> <a href="{{ github_url }}" target="_blank">github.com/darwin</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna derecha: Formulario de contacto -->
+    <div class="col-md-7">
+      <div class="card shadow h-100">
+        <div class="card-header text-center bg-dark text-white">
+          <h4>Send a Message</h4>
+        </div>
+        <div class="card-body">
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {% for field in form %}
+              <div class="form-group mb-3">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                  <div class="text-danger small">
+                    {{ field.errors }}
+                  </div>
+                {% endif %}
+              </div>
+            {% endfor %}
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'app_home/base.html' %}
+{% load static %}
+
+{% block title %} About Me {% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'app_about_me/css/about_me.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+  <!-- Hero Profile -->
+  <div class="row align-items-center">
+    <div class="col-md-4 text-center">
+      {% if profile.profile_picture %}
+        <img src="{{ profile.profile_picture.url }}" class="profile-picture mb-3" style="max-width: 400px;" alt="Profile Picture">
+      {% endif %}
+    </div>
+    <div class="col-md-6">
+      <h2 class="mb-2">{{ profile.full_name }}</h2>
+      <p class="text-muted">{{ profile.nationallity }}</p>
+      <p>{{ profile.bio }}</p>
+
+      {% if profile.cv_pdf %}
+        <a href="{{ profile.cv_pdf.url }}" class="btn btn-outline-primary mt-2" download>
+          <i class="fas fa-download me-2"></i>Download CV
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <hr class="my-5">
+
+  <!-- Technologies -->
+  <div>
+    <h4 class="mb-4">Technologies</h4>
+    <div class="row">
+      {% for tech in profile.technologies.all %}
+      <div class="col-6 col-md-3 mb-4">
+        <div class="text-center border rounded p-3 h-100 shadow-sm">
+          {% if tech.icon %}
+            <i class="{{ tech.icon }} fa-2x mb-2"></i><br>
+          {% endif %}
+          <strong>{{ tech.title }}</strong>
+          <p class="text-muted small">{{ tech.category|title }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+{% endblock %}

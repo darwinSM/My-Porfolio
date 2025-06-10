@@ -1,0 +1,47 @@
+{% extends 'app_home/base.html' %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center" style="margin-top: 5rem;">
+    <div class="card" style="width: 100%; max-width: 500px;">
+        <div class="card-header">
+            <h3 class="text-center">Register</h3>
+        </div>
+
+        <div class="card-body">
+            <form method="post" action="">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+                {% for field in form %}
+                <div class="form-group mb-3">
+                    {{ field.label_tag }}
+
+                    {% if field.field.widget.input_type == 'password' %}
+                        <input type="password" name="{{ field.name }}" aria-label="{{ field.label }}" class="form-control{% if field.errors %} is-invalid {% endif %}" value="{{ field.value|default_if_none:'' }}" required>
+                    {% else %}
+                        <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" aria-label="{{ field.label }}" class="form-control{% if field.errors %} is-invalid {% endif %}" value="{{ field.value|default_if_none:'' }}" required>
+                    {% endif %}
+
+                    {% if field.errors %}
+                        <div class="invalid-feedback">
+                            {{ field.errors|striptags }}
+                        </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                
+                <button type="submit" class="btn btn-primary w-100 mb-3">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

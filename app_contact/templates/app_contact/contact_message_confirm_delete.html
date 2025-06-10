@@ -1,0 +1,22 @@
+{% extends 'app_home/base.html' %}
+
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card w-100" style="max-width: 600px;">
+        <div class="card-header text-center bg-danger text-white">
+            <h4>Confirm Deletion</h4>
+        </div>
+        <div class="card-body text-center">
+            <p>Are you sure you want to delete the following message?</p>
+            <p><strong>{{ message.message|truncatechars:20 }}</strong></p>
+            <p class="text-muted">Sent by {{ message.name }} ({{ message.email }}) on {{ message.created_at|date:"d M Y, H:i" }}</p>
+
+            <form method="post">
+                {% csrf_token %}
+                <a href="{% url 'contact_messages_list' %}" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

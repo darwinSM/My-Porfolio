@@ -1,0 +1,40 @@
+# Entorno virtual
+venv/
+
+#Variables de entorno
+.env
+
+# Archivos de bases de datos locales
+db.sqlite3
+
+# Archivos de migraciones compilados y cachés
+**/__pycache__/
+**/*.py[cod]
+*.log
+
+# Configuraciones de IDEs
+.vscode/
+.idea/
+
+# Configuración de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos generados
+*.pot
+*.pyc
+
+# Archivos multimedia
+/media/
+/staticfiles/
+
+# Archivos de configuración de Python
+*.pyc
+
+# Archivos de compilación
+build/
+dist/
+*.egg-info
+
+# Archivos de respaldo 
+**/fixtures/*.json

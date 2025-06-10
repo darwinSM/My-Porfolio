@@ -1,0 +1,22 @@
+{% extends 'app_home/base.html' %}
+
+{% block title %} Mi Portafolio {% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1 class="display-5">Hi, I'm Darwing  <span style="font-size: 2rem;">👋</span></i></h1>
+    <p class="lead">A beginner web developer learning Django and building real-world projects with Python.</p>
+
+    <hr class="my-4">
+
+    <div class="d-flex justify-content-center gap-3">
+        <a href="{% url 'about_me' %}" class="btn btn-outline-primary">About Me</a>
+        <a href="{% url 'projects_list' %}" class="btn btn-outline-success">My Projects</a>
+        <a href="{% url 'contact' %}" class="btn btn-outline-dark">Contact Me</a>
+    </div>
+</div>
+
+{% endblock %}
+
+
+

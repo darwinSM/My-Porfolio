@@ -1,0 +1,6 @@
+body {
+    background-color: #f4f7fa;
+    background-image: url('/static/images/background-pattern.png');
+    background-size: cover;
+    background-repeat: repeat;
+}

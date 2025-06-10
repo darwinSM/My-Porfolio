@@ -1,0 +1,64 @@
+{% url 'home' as home %}
+{% url 'about_me' as about_me %}
+{% url 'projects_list' as projects_list %}
+{% url 'contact' as contact %}
+{% url 'login' as login %}
+{% url 'register' as register %}
+{% url 'contact_messages' as contact_messages %}
+
+
+{% if DEBUG %}
+    <div class="mt-5 mb-2">
+        <a class="btn btn-dark {% if request.user.username != 'sami' %} disabled {% endif %}" href="{% url 'admin:index' %}" target="_blank">Django-admin</a>
+    </div>
+{% endif %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">My Portfolio</a>
+    
+    {% if user.is_authenticated %}
+        <span class="navbar-text me-3 ms-2">User: {{ user.username }}</span>
+    {% endif %}
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == home %} active {% endif %}" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == about_me %} active {% endif %}" href="{% url 'about_me' %}">|&nbsp;&nbsp;About me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == projects_list %} active {% endif %}" href="{% url 'projects_list' %}"> |&nbsp;&nbsp;Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == contact %} active {% endif %}" href="{% url 'contact' %}">|&nbsp;&nbsp;Contact</a>
+        </li>
+
+        {% if not request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == login %} active {% endif %}" href="{% url 'login' %}">|&nbsp;&nbsp;Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == register %} active {% endif %}" href="{% url 'register' %}">|&nbsp;&nbsp;Register</a>
+        </li>
+
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'contact_messages_list' %}" class="nav-link {% if request.path == contact_messages %} active {% endif %}">|&nbsp;&nbsp;Messages</a>
+        </li>
+
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
