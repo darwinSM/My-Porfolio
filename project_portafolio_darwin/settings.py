@@ -14,6 +14,10 @@ from pathlib import Path
 from decouple import config
 import os
 
+#!Para render
+import dj_database_url
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,12 +26,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i!xb8%jhzeiss)qfp%##98u5qr*+alr(u-77e!66jxh+0b3f_t'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+# El DEBUG lo cambiamos de True : 
+# Linea de codigo facilitada por render.com
+DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = []
+#Linea de codigo facilitada por render.com (Allowed_HOST --> Autorizaciones para que se conecten a mi app)
+#Si existe la variable , la coloco en la lista de ALLOWED_HOST
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:    
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
@@ -87,12 +99,36 @@ WSGI_APPLICATION = 'project_portafolio_darwin.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+#! Configuracio  para db con SQLite
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+#! Configuracion de db con Postgresql
+#Linea de codigo facilitada por render.com
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default='postgresql://postgres:postgres@localhost:5432/mysite',
+#         conn_max_age=600
+#     )       
+# }
+
+#! Configuracion de db - En Local SQlite, en render Postgresql
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600)
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
 
 
 # Password validation
@@ -157,3 +193,11 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+#!Confuguracion para desplegar en Render.com
+
+
+# Static y media para Render
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
