@@ -52,6 +52,3 @@ python manage.py runserver
 
 5. Visit http://127.0.0.1:8000/ in your browser.
 
-
-License
-This project is open-source and available under the MIT License.
