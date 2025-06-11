@@ -23,10 +23,11 @@ def project_detail(request, pk):
 #TEMPORAL
 def temporal_load_fixtures_view(request):
     try:
+        call_command('loaddata', 'fixtures/user.json')
+        call_command('loaddata', 'fixtures/back_up_technology.json')
         call_command('loaddata', 'fixtures/back_up_about_me.json')
         call_command('loaddata', 'fixtures/back_up_projects.json')
-        call_command('loaddata', 'fixtures/back_up_technology.json')
-
+        
         return HttpResponse("Fixtures loaded successfully")
     except Exception as e:
         return HttpResponse(f'Error loading fixtures: {e}')
