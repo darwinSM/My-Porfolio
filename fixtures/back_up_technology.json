@@ -1,0 +1,314 @@
+[
+{
+    "model": "app_about_me.technology",
+    "pk": 1,
+    "fields": {
+        "title": "Python",
+        "icon": "fa-brands fa-python",
+        "category": "language",
+        "description": "High-level programming language focused on readability",
+        "created_at": "2025-06-07T15:39:28.775Z",
+        "updated_at": "2025-06-07T15:39:28.775Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 2,
+    "fields": {
+        "title": "JavaScript",
+        "icon": "fa-brands fa-js",
+        "category": "language",
+        "description": "Versatile language for frontend and backend web development",
+        "created_at": "2025-06-07T15:39:58.579Z",
+        "updated_at": "2025-06-07T15:39:58.579Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 3,
+    "fields": {
+        "title": "TypeScript",
+        "icon": "fa-brands fa-js",
+        "category": "language",
+        "description": "JavaScript with static typing for better code quality",
+        "created_at": "2025-06-07T15:40:30.846Z",
+        "updated_at": "2025-06-07T15:40:30.846Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 4,
+    "fields": {
+        "title": "HTML5",
+        "icon": "fa-brands fa-html5",
+        "category": "language",
+        "description": "Markup language for structuring web content",
+        "created_at": "2025-06-07T15:40:58.886Z",
+        "updated_at": "2025-06-07T15:40:58.886Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 5,
+    "fields": {
+        "title": "CSS3",
+        "icon": "fa-brands fa-css3-alt",
+        "category": "language",
+        "description": "Style sheet language for designing web pages",
+        "created_at": "2025-06-07T15:41:35.232Z",
+        "updated_at": "2025-06-07T15:41:35.232Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 6,
+    "fields": {
+        "title": "Django",
+        "icon": "fa-solid fa-leaf",
+        "category": "framework",
+        "description": "High-level Python web framework",
+        "created_at": "2025-06-07T15:42:07.593Z",
+        "updated_at": "2025-06-07T15:42:07.593Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 7,
+    "fields": {
+        "title": "Flask",
+        "icon": "fa-solid fa-flask",
+        "category": "framework",
+        "description": "Lightweight Python web framework",
+        "created_at": "2025-06-07T15:42:36.022Z",
+        "updated_at": "2025-06-07T15:42:36.022Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 8,
+    "fields": {
+        "title": "Vue.js",
+        "icon": "fa-brands fa-vuejs",
+        "category": "framework",
+        "description": "Progressive JavaScript framework for building UIs",
+        "created_at": "2025-06-07T15:43:05.818Z",
+        "updated_at": "2025-06-07T15:43:05.818Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 9,
+    "fields": {
+        "title": "React",
+        "icon": "fa-brands fa-react",
+        "category": "framework",
+        "description": "JavaScript library for building interactive UIs",
+        "created_at": "2025-06-07T15:43:34.789Z",
+        "updated_at": "2025-06-07T15:43:34.789Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 10,
+    "fields": {
+        "title": "Bootstrap",
+        "icon": "fa-brands fa-bootstrap",
+        "category": "framework",
+        "description": "CSS framework for responsive UI design",
+        "created_at": "2025-06-07T15:43:56.942Z",
+        "updated_at": "2025-06-07T15:43:56.942Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 11,
+    "fields": {
+        "title": "PostgreSQL",
+        "icon": "fa-solid fa-database",
+        "category": "database",
+        "description": "Powerful open-source relational database",
+        "created_at": "2025-06-07T15:44:34.287Z",
+        "updated_at": "2025-06-07T15:44:34.287Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 12,
+    "fields": {
+        "title": "MySQL",
+        "icon": "fa-solid fa-database",
+        "category": "database",
+        "description": "Popular open-source relational database",
+        "created_at": "2025-06-07T15:45:07.589Z",
+        "updated_at": "2025-06-07T15:45:07.589Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 13,
+    "fields": {
+        "title": "SQLite",
+        "icon": "fa-solid fa-database",
+        "category": "database",
+        "description": "Lightweight embedded database used in development",
+        "created_at": "2025-06-07T15:45:34.166Z",
+        "updated_at": "2025-06-07T15:45:34.166Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 14,
+    "fields": {
+        "title": "Git",
+        "icon": "fa-brands fa-git-alt",
+        "category": "tool",
+        "description": "Version control system to track code changes",
+        "created_at": "2025-06-07T15:46:06.367Z",
+        "updated_at": "2025-06-07T15:46:06.367Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 15,
+    "fields": {
+        "title": "GitHub",
+        "icon": "fa-brands fa-github",
+        "category": "tool",
+        "description": "Hosting service for Git repositories",
+        "created_at": "2025-06-07T15:46:36.302Z",
+        "updated_at": "2025-06-07T15:46:36.302Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 16,
+    "fields": {
+        "title": "Docker",
+        "icon": "fa-brands fa-docker",
+        "category": "tool",
+        "description": "Container platform for deploying apps",
+        "created_at": "2025-06-07T15:47:02.174Z",
+        "updated_at": "2025-06-07T15:47:02.174Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 17,
+    "fields": {
+        "title": "Postman",
+        "icon": "fa-solid fa-envelope-open-text",
+        "category": "tool",
+        "description": "API testing and collaboration platform",
+        "created_at": "2025-06-07T15:47:27.719Z",
+        "updated_at": "2025-06-07T15:47:27.719Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 18,
+    "fields": {
+        "title": "Heroku",
+        "icon": "fa-solid fa-cloud",
+        "category": "platform",
+        "description": "Cloud platform for easy app deployment",
+        "created_at": "2025-06-07T15:49:05.119Z",
+        "updated_at": "2025-06-07T15:49:05.119Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 19,
+    "fields": {
+        "title": "Netlify",
+        "icon": "fa-solid fa-rocket",
+        "category": "platform",
+        "description": "Hosting platform for frontend projects",
+        "created_at": "2025-06-07T15:49:29.760Z",
+        "updated_at": "2025-06-07T15:49:29.760Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 20,
+    "fields": {
+        "title": "Vercel",
+        "icon": "fa-brands fa-vercel",
+        "category": "platform",
+        "description": "Deployment platform for frontend apps",
+        "created_at": "2025-06-07T15:49:57.348Z",
+        "updated_at": "2025-06-07T15:49:57.348Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 21,
+    "fields": {
+        "title": "Tailwind CSS",
+        "icon": "fa-solid fa-wind",
+        "category": "frontend",
+        "description": "Utility-first CSS framework for rapid UI building",
+        "created_at": "2025-06-07T15:50:25.646Z",
+        "updated_at": "2025-06-07T15:50:25.646Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 22,
+    "fields": {
+        "title": "Sass",
+        "icon": "fa-brands fa-sass",
+        "category": "frontend",
+        "description": "CSS preprocessor for advanced styling",
+        "created_at": "2025-06-07T15:50:47.331Z",
+        "updated_at": "2025-06-07T15:50:47.331Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 23,
+    "fields": {
+        "title": "Node.js",
+        "icon": "fa-brands fa-node",
+        "category": "backend",
+        "description": "JavaScript runtime for backend development",
+        "created_at": "2025-06-07T15:51:21.704Z",
+        "updated_at": "2025-06-07T15:51:21.704Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 24,
+    "fields": {
+        "title": "Express.js",
+        "icon": "fa-solid fa-road",
+        "category": "backend",
+        "description": "Minimalist backend framework for Node.js",
+        "created_at": "2025-06-07T15:51:45.622Z",
+        "updated_at": "2025-06-07T15:51:45.622Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 25,
+    "fields": {
+        "title": "Linux",
+        "icon": "fa-brands fa-linux",
+        "category": "other",
+        "description": "Open-source OS widely used in servers",
+        "created_at": "2025-06-07T15:52:09.267Z",
+        "updated_at": "2025-06-07T15:52:09.267Z"
+    }
+},
+{
+    "model": "app_about_me.technology",
+    "pk": 26,
+    "fields": {
+        "title": "VS Code",
+        "icon": "fa-solid fa-code",
+        "category": "other",
+        "description": "Popular source-code editor",
+        "created_at": "2025-06-07T15:52:42.188Z",
+        "updated_at": "2025-06-07T15:52:42.188Z"
+    }
+}
+]

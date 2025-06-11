@@ -1,0 +1,64 @@
+[
+{
+    "model": "app_projects.project",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "title": "Project Encriptador (Alura-Latam)",
+        "description": "Encriptador de 3 niveles de seguridad - Este proyecto es una aplicación web sencilla que permite encriptar y desencriptar texto utilizando reglas básicas de transformación de caracteres. Está diseñado como un ejercicio práctico para estudiantes que desean mejorar sus habilidades en HTML y CSS, explorando la lógica de manipulación de texto en el navegador.",
+        "project_image": "project/project_image/proyecto-challengue-encriptador-de-texto-Alura-Latam-Oracle-OK_VxP92Ak.jpg",
+        "demo_url": "https://encriptador-alura-latam-ok.netlify.app/",
+        "source_code_url": "https://github.com/darwinSM/encriptador-Alura-Latam-Ok",
+        "created_at": "2025-06-08T16:03:13.212Z",
+        "updated_at": "2025-06-09T15:13:47.228Z",
+        "project_technologies": [
+            2,
+            4,
+            5
+        ]
+    }
+},
+{
+    "model": "app_projects.project",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "title": "Django-crud-auth",
+        "description": "Este proyecto es una aplicación web básica desarrollada con Django, diseñada para gestionar tareas mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar). Es ideal para estudiantes que buscan fortalecer sus habilidades en desarrollo web con Django y comprender la estructura de una aplicación dinámica.",
+        "project_image": "project/project_image/django-crud-auth.jpg",
+        "demo_url": "https://django-crud-auth-hv8y.onrender.com/",
+        "source_code_url": "https://github.com/darwinSM/django-crud-auth",
+        "created_at": "2025-06-09T02:30:50.108Z",
+        "updated_at": "2025-06-09T13:49:11.371Z",
+        "project_technologies": [
+            1,
+            4,
+            6,
+            26
+        ]
+    }
+},
+{
+    "model": "app_projects.project",
+    "pk": 3,
+    "fields": {
+        "user": 1,
+        "title": "Songs Market Ecommerce",
+        "description": "Este proyecto estudiantil, desarrollado con Django, destaca por su nivel de complejidad y funcionalidad, ofreciendo una experiencia integral para la gestión de compras en línea. Con una arquitectura bien estructurada, incorpora módulos clave como autenticación de usuarios, procesamiento de pagos mediante Stripe y administración de pedidos, lo que lo convierte en una solución robusta y profesional.\r\nEl sistema de carrito de compras está perfectamente integrado con Stripe, permitiendo transacciones seguras y eficientes. Además, cuenta con herramientas para la gestión de direcciones de envío, códigos promocionales y comunicación con los usuarios, asegurando una experiencia fluida y personalizada.\r\nMás allá de su funcionalidad comercial, el proyecto también incluye una sección multimedia, demostrando la versatilidad de Django para manejar distintos tipos de contenido. Su diseño modular y escalable lo convierte en un excelente ejemplo de desarrollo web avanzado, ideal para quienes buscan aprender y aplicar buenas prácticas en la creación de aplicaciones completas.",
+        "project_image": "",
+        "demo_url": null,
+        "source_code_url": null,
+        "created_at": "2025-06-09T13:43:30.987Z",
+        "updated_at": "2025-06-09T13:43:30.987Z",
+        "project_technologies": [
+            1,
+            2,
+            4,
+            5,
+            6,
+            10,
+            13
+        ]
+    }
+}
+]

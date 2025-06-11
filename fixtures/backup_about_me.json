@@ -1,0 +1,23 @@
+[
+{
+    "model": "app_about_me.aboutme",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "full_name": "Darwing Sarmiento M",
+        "bio": "Estudiante Desarrollo de software.\r\nMe considero una persona diligente, madura, motivada y con el firme propósito de integrarme al fascinante mundo del desarrollo de software. Mi experiencia laboral se ha centrado en la administración de negocios, y soy tecnólogo industrial de profesión. Siempre he sido autónomo e independiente en mi trabajo. Ante el creciente campo del desarrollo de software, decidí iniciar mi formación en el programa Misión TIC de la Universidad Nacional de Colombia, y hasta ahora he cumplido con mis expectativas, aprendiendo más cada día y aplicando mis conocimientos en proyectos personales. Estoy a la espera de la oportunidad de contribuir en un equipo de trabajo que me permita alcanzar objetivos comunes. Mis áreas de enfoque principales las desarrollo en Python (API Rest, Django).\r\nActualmente, continúo fortaleciendo mis conocimientos como estudiante del SENA Virtual, en el programa de Análisis y Desarrollo de Software, lo que me permite ampliar mi perspectiva y consolidar mis habilidades en el campo tecnológico.\"",
+        "nationallity": "Colombia",
+        "profile_picture": "aboutme/picture/Proyecto_-_Foto_perfil_profesional_2.jpg",
+        "cv_pdf": "aboutme/cv/H.VID-DarwingSarmientoMoreno_Act-Marz__2025.pdf",
+        "created_at": "2025-06-07T16:10:08.838Z",
+        "updated_at": "2025-06-08T12:34:25.101Z",
+        "technologies": [
+            1,
+            6,
+            7,
+            10,
+            26
+        ]
+    }
+}
+]
