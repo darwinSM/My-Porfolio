@@ -122,7 +122,9 @@ WSGI_APPLICATION = 'project_portafolio_darwin.wsgi.application'
 # Render proporciona esta variable DATABASE_URL que ya esta en el entorno
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600)
+        'default': dj_database_url.config(
+            default=f'sqlite:///{BASE_DIR / "db.sqlite3"}',
+            conn_max_age=600)
     }
 else:
     DATABASES = {
