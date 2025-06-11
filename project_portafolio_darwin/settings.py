@@ -65,6 +65,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # Esta line es de la configuracion que requiere render
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -117,6 +119,7 @@ WSGI_APPLICATION = 'project_portafolio_darwin.wsgi.application'
 # }
 
 #! Configuracion de db - En Local SQlite, en render Postgresql
+# Render proporciona esta variable DATABASE_URL que ya esta en el entorno
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.config(conn_max_age=600)
@@ -172,6 +175,12 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),
                     os.path.join(BASE_DIR, 'app_projects/static'),
                     ]  # ← CARPETA física dentro del proyecto
 
+#!Confuguracion para desplegar en Render.com
+# Static y media para Render
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -197,7 +206,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 #!Confuguracion para desplegar en Render.com
 
-
-# Static y media para Render
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
