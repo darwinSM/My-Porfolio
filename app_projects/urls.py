@@ -4,4 +4,5 @@ from app_projects import views
 urlpatterns = [
     path('projects/', views.projects_view, name='projects_list'),
     path('projects/<int:pk>/', views.project_detail, name='project_detail'),
+    path('temporal-load-fixtures/', views.temporal_load_fixtures_view, name="temporal_load_fixtures"),
 ]
