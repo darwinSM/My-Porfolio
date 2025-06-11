@@ -5,7 +5,7 @@
     "fields": {
         "user": 1,
         "title": "Project Encriptador (Alura-Latam)",
-        "description": "Encriptador de 3 niveles de seguridad - Este proyecto es una aplicaciÛn web sencilla que permite encriptar y desencriptar texto utilizando reglas b·sicas de transformaciÛn de caracteres. Est· diseÒado como un ejercicio pr·ctico para estudiantes que desean mejorar sus habilidades en HTML y CSS, explorando la lÛgica de manipulaciÛn de texto en el navegador.",
+        "description": "Encriptador de 3 niveles de seguridad - Este proyecto es una aplicaci√≥n web sencilla que permite encriptar y desencriptar texto utilizando reglas b√°sicas de transformaci√≥n de caracteres. Est√° dise√±ado como un ejercicio pr√°ctico para estudiantes que desean mejorar sus habilidades en HTML y CSS, explorando la l√≥gica de manipulaci√≥n de texto en el navegador.",
         "project_image": "project/project_image/proyecto-challengue-encriptador-de-texto-Alura-Latam-Oracle-OK_VxP92Ak.jpg",
         "demo_url": "https://encriptador-alura-latam-ok.netlify.app/",
         "source_code_url": "https://github.com/darwinSM/encriptador-Alura-Latam-Ok",
@@ -24,7 +24,7 @@
     "fields": {
         "user": 1,
         "title": "Django-crud-auth",
-        "description": "Este proyecto es una aplicaciÛn web b·sica desarrollada con Django, diseÒada para gestionar tareas mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar). Es ideal para estudiantes que buscan fortalecer sus habilidades en desarrollo web con Django y comprender la estructura de una aplicaciÛn din·mica.",
+        "description": "Este proyecto es una aplicaci√≥n web b√°sica desarrollada con Django, dise√±ada para gestionar tareas mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar). Es ideal para estudiantes que buscan fortalecer sus habilidades en desarrollo web con Django y comprender la estructura de una aplicaci√≥n din√°mica.",
         "project_image": "project/project_image/django-crud-auth.jpg",
         "demo_url": "https://django-crud-auth-hv8y.onrender.com/",
         "source_code_url": "https://github.com/darwinSM/django-crud-auth",
@@ -44,7 +44,7 @@
     "fields": {
         "user": 1,
         "title": "Songs Market Ecommerce",
-        "description": "Este proyecto estudiantil, desarrollado con Django, destaca por su nivel de complejidad y funcionalidad, ofreciendo una experiencia integral para la gestiÛn de compras en lÌnea. Con una arquitectura bien estructurada, incorpora mÛdulos clave como autenticaciÛn de usuarios, procesamiento de pagos mediante Stripe y administraciÛn de pedidos, lo que lo convierte en una soluciÛn robusta y profesional.\r\nEl sistema de carrito de compras est· perfectamente integrado con Stripe, permitiendo transacciones seguras y eficientes. Adem·s, cuenta con herramientas para la gestiÛn de direcciones de envÌo, cÛdigos promocionales y comunicaciÛn con los usuarios, asegurando una experiencia fluida y personalizada.\r\nM·s all· de su funcionalidad comercial, el proyecto tambiÈn incluye una secciÛn multimedia, demostrando la versatilidad de Django para manejar distintos tipos de contenido. Su diseÒo modular y escalable lo convierte en un excelente ejemplo de desarrollo web avanzado, ideal para quienes buscan aprender y aplicar buenas pr·cticas en la creaciÛn de aplicaciones completas.",
+        "description": "Este proyecto estudiantil, desarrollado con Django, destaca por su nivel de complejidad y funcionalidad, ofreciendo una experiencia integral para la gesti√≥n de compras en l√≠nea. Con una arquitectura bien estructurada, incorpora m√≥dulos clave como autenticaci√≥n de usuarios, procesamiento de pagos mediante Stripe y administraci√≥n de pedidos, lo que lo convierte en una soluci√≥n robusta y profesional.\r\nEl sistema de carrito de compras est√° perfectamente integrado con Stripe, permitiendo transacciones seguras y eficientes. Adem√°s, cuenta con herramientas para la gesti√≥n de direcciones de env√≠o, c√≥digos promocionales y comunicaci√≥n con los usuarios, asegurando una experiencia fluida y personalizada.\r\nM√°s all√° de su funcionalidad comercial, el proyecto tambi√©n incluye una secci√≥n multimedia, demostrando la versatilidad de Django para manejar distintos tipos de contenido. Su dise√±o modular y escalable lo convierte en un excelente ejemplo de desarrollo web avanzado, ideal para quienes buscan aprender y aplicar buenas pr√°cticas en la creaci√≥n de aplicaciones completas.",
         "project_image": "",
         "demo_url": null,
         "source_code_url": null,
