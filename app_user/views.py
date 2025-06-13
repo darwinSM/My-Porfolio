@@ -115,4 +115,20 @@ def register_view(request):
     }) 
              
 
+
+#! Vista temporal para crear supeuser desde render
+from django.contrib.auth import get_user_model
+from django.http import HttpResponse
+
+def temporal_create_superuser_render_view(request):
+    User = get_user_model()
+    if not User.objects.filter(username="sami").exist():
+        User.objects.create_superuser(
+            username="sami",
+            email="dasarmi01@gmail.com",
+            password="1234"
+                    )
+        return HttpResponse("Superuser create successfully")
+    else:
+        return HttpResponse("Superuser already exixst")
         
