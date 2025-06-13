@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 from decouple import config
-import os
 
 #! Para render
 import dj_database_url
@@ -207,15 +207,23 @@ EMAIL_PORT = 587                # Port for sending e-mail.
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 #! Confuguracion para usar cloudinary
-CLOUDINARY_STORAGE = {
-    "CLOUDINARY_URL": config('CLOUDINARY_URL'),
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-#Esto le dice a Django que todos los archivos subidos (como imágenes) se guarden en Cloudinary.
+# Así le estás diciendo a Django:
+# 🔹 "Si estoy en producción (Render), uso Cloudinary"
+# 🔹 "Si estoy en desarrollo (mi PC), uso carpetas locales"
 
+ENVIRONMENT = config('ENVIRONMENT', default='development')
 
+if ENVIRONMENT == 'production':
+    CLOUDINARY_STORAGE = {
+        "CLOUDINARY_URL": config('CLOUDINARY_URL'),
+    }
+    #Esto le dice a Django que todos los archivos subidos (como imágenes) se guarden en Cloudinary.
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+else:
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
