@@ -131,4 +131,16 @@ def temporal_create_superuser_render_view(request):
         return HttpResponse("Superuser create successfully")
     else:
         return HttpResponse("Superuser already exixst")
+     
         
+def promote_existing_user_to_superuser(request):
+    User = get_user_model()
+    try:
+        user = User.objects.get(username='sami')
+        user.is_staff = True
+        user.is_superuser = True
+        user.set_password('1234')  # Asegura que la contraseña sea válida
+        user.save()
+        return HttpResponse("User promoted to superuser and password reset.")
+    except User.DoesNotExist:
+        return HttpResponse("User does not exist.")
