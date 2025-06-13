@@ -14,9 +14,11 @@ from pathlib import Path
 from decouple import config
 import os
 
-#!Para render
+#! Para render
 import dj_database_url
 
+#! Para Cloudinary
+import cloudinary, cloudinary.uploader, cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,14 +55,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     #My apps
-    'django_bootstrap5',
     'app_home.apps.AppHomeConfig',
     'app_about_me.apps.AppAboutMeConfig',
     'app_projects.apps.AppProjectsConfig',
     'app_contact.apps.AppContactConfig',
     'app_sendmails.apps.AppSendmailsConfig',
     'app_user.apps.AppUserConfig',
-    
+
+    #Herramientas
+    'django_bootstrap5',
+    'cloudinary',
+    'cloudinary_storage',    
 ]
 
 MIDDLEWARE = [
@@ -206,6 +211,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
-#!Confuguracion para desplegar en Render.com
+#! Confuguracion para usar cloudinary
+CLOUDINARY_STORAGE = {
+    "CLOUDINARY_URL": config('CLOUDINARY_URL'),
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#Esto le dice a Django que todos los archivos subidos (como imágenes) se guarden en Cloudinary.
 
 
