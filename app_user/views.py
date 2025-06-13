@@ -122,7 +122,7 @@ from django.http import HttpResponse
 
 def temporal_create_superuser_render_view(request):
     User = get_user_model()
-    if not User.objects.filter(username="sami").exist():
+    if not User.objects.filter(username="sami").exists():
         User.objects.create_superuser(
             username="sami",
             email="dasarmi01@gmail.com",
