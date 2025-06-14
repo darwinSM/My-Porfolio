@@ -116,7 +116,7 @@ def register_view(request):
              
 
 
-#! Vista temporal para crear supeuser desde render
+#! Vistas temporales para crear supeuser desde render
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 
@@ -144,3 +144,15 @@ def promote_existing_user_to_superuser(request):
         return HttpResponse("User promoted to superuser and password reset.")
     except User.DoesNotExist:
         return HttpResponse("User does not exist.")
+    
+
+from django.http import JsonResponse
+from django.conf import settings
+
+def test_env(request):
+    data = {
+        "ENVIRONMENT": getattr(settings, "ENVIRONMENT", "No definido"),
+        "DEFAULT_FILE_STORAGE": getattr(settings, "DEFAULT_FILE_STORAGE", "No definido"),
+        "CLOUDINARY_URL": getattr(settings, "CLOUDINARY_URL", "No definido"),
+    }
+    return JsonResponse(data)

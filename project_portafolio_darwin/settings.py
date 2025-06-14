@@ -158,9 +158,7 @@ if ENVIRONMENT == 'production':
 else:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-logger.warning(f'DEFAULT FILE STORAGE: {DEFAULT_FILE_STORAGE}')
-
+    
 # 📧 Configuración de correo
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
