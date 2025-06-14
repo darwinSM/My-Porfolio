@@ -19,6 +19,13 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
+#Other
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger('Django')
+
+
 # BASE_DIR
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,6 +33,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 ENVIRONMENT = config('ENVIRONMENT', default='development')
 DEBUG = ENVIRONMENT != 'production'
+
+logger.warning(f'entorno actual: {ENVIRONMENT}')
 
 # 🌍 Hosts permitidos
 ALLOWED_HOSTS = []
