@@ -9,49 +9,31 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
 import os
 from pathlib import Path
 from decouple import config
-
-#! Para render
 import dj_database_url
 
-#! Para Cloudinary
-import cloudinary, cloudinary.uploader, cloudinary.api
+# Cloudinary
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# BASE_DIR
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# 🔐 Claves secretas y entorno
 SECRET_KEY = config('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-# El DEBUG lo cambiamos de True : 
-# Linea de codigo facilitada por render.com
-
-#DEBUG = 'RENDER' not in os.environ
-#! Usamos una sola variable, enlazamos DEBUG con ENVIRONMENT
 ENVIRONMENT = config('ENVIRONMENT', default='development')
 DEBUG = ENVIRONMENT != 'production'
 
-
-
+# 🌍 Hosts permitidos
 ALLOWED_HOSTS = []
-#Linea de codigo facilitada por render.com (Allowed_HOST --> Autorizaciones para que se conecten a mi app)
-#Si existe la variable , la coloco en la lista de ALLOWED_HOST
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:    
+if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
-
-# Application definition
-
+# 📦 Aplicaciones instaladas
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -59,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    #My apps
+
+    # Apps del proyecto
     'app_home.apps.AppHomeConfig',
     'app_about_me.apps.AppAboutMeConfig',
     'app_projects.apps.AppProjectsConfig',
@@ -68,16 +50,16 @@ INSTALLED_APPS = [
     'app_sendmails.apps.AppSendmailsConfig',
     'app_user.apps.AppUserConfig',
 
-    #Herramientas
+    # Herramientas
     'django_bootstrap5',
     'cloudinary',
-    'cloudinary_storage',    
+    'cloudinary_storage',
 ]
 
+# 🧱 Middlewares
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # Esta line es de la configuracion que requiere render
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Requerido por Render
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -88,6 +70,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'project_portafolio_darwin.urls'
 
+# 🖼️ Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -98,9 +81,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
-                # My context processors
-                'app_home.context_processors.debug_mode', ## Este context processor muestra un boton de enlace a Django-admin en todas las plantillas cuando DEBUG=True           
+                'app_home.context_processors.debug_mode',
             ],
         },
     },
@@ -108,34 +89,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project_portafolio_darwin.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-#! Configuracio  para db con SQLite
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-#! Configuracion de db con Postgresql
-#Linea de codigo facilitada por render.com
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default='postgresql://postgres:postgres@localhost:5432/mysite',
-#         conn_max_age=600
-#     )       
-# }
-
-#! Configuracion de db - En Local SQlite, en render Postgresql
-# Render proporciona esta variable DATABASE_URL que ya esta en el entorno
+# 🗃️ Bases de datos
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.config(
             default=f'sqlite:///{BASE_DIR / "db.sqlite3"}',
-            conn_max_age=600)
+            conn_max_age=600
+        )
     }
 else:
     DATABASES = {
@@ -145,11 +105,7 @@ else:
         }
     }
 
-
-
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
+# 🔐 Validadores de contraseña
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -165,71 +121,42 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
-
+# 🌐 Internacionalización
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
+# 📂 Archivos estáticos
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'app_about_me/static'),
+    os.path.join(BASE_DIR, 'app_projects/static'),
+]
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
-# Configuracion de archivos estaticos
-STATIC_URL = '/static/'   # ← RUTA PÚBLICA en el navegador
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),
-                    os.path.join(BASE_DIR, 'app_about_me/static'),
-                    os.path.join(BASE_DIR, 'app_projects/static'),
-                    ]  # ← CARPETA física dentro del proyecto
-
-#!Confuguracion para desplegar en Render.com
-# Static y media para Render
+# Configuración de producción (Render)
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# Otras Configuraciones
-
-#Configuracion de email
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'   # Host for sending e-mail. (host de gmail)
-EMAIL_USE_TLS = True            # protocolo Servidor que requiere autenticacion para iniciar sesion
-EMAIL_PORT = 587                # Port for sending e-mail.
-
-
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-
-#! Confuguracion para usar cloudinary
-# Así le estás diciendo a Django:
-# 🔹 "Si estoy en producción (Render), uso Cloudinary"
-# 🔹 "Si estoy en desarrollo (mi PC), uso carpetas locales"
-
-# ENVIRONMENT = config('ENVIRONMENT', default='development')  --> La defini al inicio
-
+# 🖼️ Archivos multimedia
 if ENVIRONMENT == 'production':
     CLOUDINARY_STORAGE = {
         "CLOUDINARY_URL": config('CLOUDINARY_URL'),
     }
-    #Esto le dice a Django que todos los archivos subidos (como imágenes) se guarden en Cloudinary.
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 else:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# 📧 Configuración de correo
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+# 🔑 Campo ID por defecto
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
