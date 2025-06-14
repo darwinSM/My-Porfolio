@@ -169,3 +169,8 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 # 🔑 Campo ID por defecto
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Prueba
+import os
+
+print(f"CLOUDINARY_URL desde os.environ: {os.environ.get('CLOUDINARY_URL')}")
