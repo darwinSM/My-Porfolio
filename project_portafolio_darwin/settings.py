@@ -33,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 ENVIRONMENT = config('ENVIRONMENT', default='development')
 DEBUG = ENVIRONMENT != 'production'
-CLOUDINARY_URL = config('CLOUDINARY_URL')
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 
 logger.warning(f'entorno actual: {ENVIRONMENT}')
 
@@ -154,7 +154,7 @@ if not DEBUG:
 if ENVIRONMENT == 'production':
     CLOUDINARY_STORAGE = {
         "CLOUDINARY_URL": CLOUDINARY_URL
-        #Linea comentada - POible causa de error de no arga cloudinary_url, En vez de usar config(), usa os.environ.get() directamente. A veces config() no detecta bien variables en ciertos entornos de despliegue.
+        #Linea comentada - POible causa de error de no arga cloudinary_url, En vez de usar config(), usar os.environ.get() directamente. A veces config() no detecta bien variables en ciertos entornos de despliegue.
         # "CLOUDINARY_URL": config('CLOUDINARY_URL'),
     }
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
