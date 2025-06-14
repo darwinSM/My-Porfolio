@@ -153,6 +153,6 @@ def test_env(request):
     data = {
         "ENVIRONMENT": getattr(settings, "ENVIRONMENT", "No definido"),
         "DEFAULT_FILE_STORAGE": getattr(settings, "DEFAULT_FILE_STORAGE", "No definido"),
-        "CLOUDINARY_URL": getattr(settings, "CLOUDINARY_URL", "No definido"),
+        "CLOUDINARY_URL": settings.CLOUDINARY_STORAGE.get("CLOUDINARY_URL", "No definido"),
     }
     return JsonResponse(data)
