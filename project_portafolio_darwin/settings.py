@@ -34,7 +34,13 @@ SECRET_KEY = config('SECRET_KEY')
 #DEBUG = True
 # El DEBUG lo cambiamos de True : 
 # Linea de codigo facilitada por render.com
-DEBUG = 'RENDER' not in os.environ
+
+#DEBUG = 'RENDER' not in os.environ
+#! Usamos una sola variable, enlazamos DEBUG con ENVIRONMENT
+ENVIRONMENT = config('ENVIRONMENT', default='development')
+DEBUG = ENVIRONMENT != 'production'
+
+
 
 ALLOWED_HOSTS = []
 #Linea de codigo facilitada por render.com (Allowed_HOST --> Autorizaciones para que se conecten a mi app)
@@ -216,7 +222,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 # 🔹 "Si estoy en producción (Render), uso Cloudinary"
 # 🔹 "Si estoy en desarrollo (mi PC), uso carpetas locales"
 
-ENVIRONMENT = config('ENVIRONMENT', default='development')
+# ENVIRONMENT = config('ENVIRONMENT', default='development')  --> La defini al inicio
 
 if ENVIRONMENT == 'production':
     CLOUDINARY_STORAGE = {
