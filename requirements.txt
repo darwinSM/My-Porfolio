@@ -1,5 +1,6 @@
 dj-database-url==3.0.0
-Django==5.2.1
+#Django==5.2.1 (Downloader versin para version de production por problemas de incompatibilidad con django-cloudinary-storage==0.3.0)
+Django==4.2.14
 django-bootstrap5==25.1
 pillow==11.2.1
 psycopg2-binary==2.9.10
