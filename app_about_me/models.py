@@ -34,10 +34,7 @@ class AboutMe(models.Model):
     bio = models.TextField()
     nationallity = models.CharField(max_length=50, blank=True, null=True)
     profile_picture = models.ImageField(upload_to="aboutme/picture/", blank=True, null=True)
-    
-    #Explicación: Al usar la cadena 'app_about_me.storage.PdfCloudinaryStorage', le estás diciendo a Django: "Cuando necesites una instancia de esta clase de almacenamiento para este campo, búscamela en el módulo storage dentro de la aplicación app_about_me y usa la clase PdfCloudinaryStorage". Esto evita que se intente instanciar la clase en un momento inoportuno durante las migraciones.
-    cv_pdf = models.FileField(upload_to="aboutme/cv/", blank=True, null=True,
-                              storage='app_about_me.storage.PdfCloudinaryStorage')
+    cv_pdf = models.FileField(upload_to="aboutme/cv/", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
