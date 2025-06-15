@@ -152,6 +152,9 @@ if not DEBUG:
 
 # 🖼️ Archivos multimedia
 if ENVIRONMENT == 'production':
+    # Añade estas impresiones para depuración:
+    print(f"DEBUG_PROD_CLOUDINARY_URL: {CLOUDINARY_URL}")
+    print(f"DEBUG_PROD_CLOUD_NAME_ENV: {os.environ.get('CLOUDINARY_CLOUD_NAME')}")
     CLOUDINARY_STORAGE = {
         "CLOUDINARY_URL": CLOUDINARY_URL
         #Linea comentada - POible causa de error de no arga cloudinary_url, En vez de usar config(), usar os.environ.get() directamente. A veces config() no detecta bien variables en ciertos entornos de despliegue.
