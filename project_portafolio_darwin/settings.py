@@ -34,6 +34,10 @@ SECRET_KEY = config('SECRET_KEY')
 ENVIRONMENT = config('ENVIRONMENT', default='development')
 DEBUG = ENVIRONMENT != 'production'
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+CLOUD_NAME = os.environ.get('CLOUDINARY_CLOUD_NAME')
+API_KEY = os.environ.get('CLOUDINARY_API_KEY')
+API_SECRET = os.environ.get('CLOUDINARY_API_SECRET')
+
 
 logger.warning(f'entorno actual: {ENVIRONMENT}')
 
@@ -156,9 +160,12 @@ if ENVIRONMENT == 'production':
     print(f"DEBUG_PROD_CLOUDINARY_URL: {CLOUDINARY_URL}")
     print(f"DEBUG_PROD_CLOUD_NAME_ENV: {os.environ.get('CLOUDINARY_CLOUD_NAME')}")
     CLOUDINARY_STORAGE = {
-        "CLOUDINARY_URL": CLOUDINARY_URL
+        #"CLOUDINARY_URL": CLOUDINARY_URL
         #Linea comentada - POible causa de error de no arga cloudinary_url, En vez de usar config(), usar os.environ.get() directamente. A veces config() no detecta bien variables en ciertos entornos de despliegue.
         # "CLOUDINARY_URL": config('CLOUDINARY_URL'),
+        'CLOUD_NAME': CLOUD_NAME,
+        'API_KEY': API_KEY,
+        'API_SECRET': API_SECRET,
     }
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
     MEDIA_URL = f"https://res.cloudinary.com/{os.environ.get('CLOUDINARY_CLOUD_NAME')}/"
