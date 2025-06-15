@@ -18,6 +18,7 @@ import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import cloudinary.utils
 
 #Other
 import logging
@@ -34,6 +35,9 @@ SECRET_KEY = config('SECRET_KEY')
 ENVIRONMENT = config('ENVIRONMENT', default='development')
 DEBUG = ENVIRONMENT != 'production'
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+# Obtener CLOUDINARY_CLOUD_NAME de CLOUDINARY_URL
+CLOUDINARY_CLOUD_NAME = cloudinary.utils.cloudinary_url(CLOUDINARY_URL)[2]
+
 
 logger.warning(f'entorno actual: {ENVIRONMENT}')
 
@@ -158,6 +162,7 @@ if ENVIRONMENT == 'production':
         # "CLOUDINARY_URL": config('CLOUDINARY_URL'),
     }
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    MEDIA_URL = f"https://res.cloudinary.com/{CLOUDINARY_CLOUD_NAME}/"
 else:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
