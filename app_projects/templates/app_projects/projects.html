@@ -17,7 +17,7 @@
                         </div>
                         <div class="card-body d-flex flex-column">
                             <p class="card-text text-center">
-                                {{ project.description|truncatewords:20 }}
+                                {{ project.description | linebreaks | truncatewords:20 }}
                             </p>
                             <div class="mb-2 text-center">
                                 {% for tech in project.project_technologies.all %}
@@ -34,10 +34,10 @@
                                 {% endfor %}
                             </div>
                             <p class="text-muted text-center mb-1 small">
-                                Created: {{ project.created_at|date:"M d, Y" }}
+                                Created: {{ project.created_at | date:"M d, Y" }}
                             </p>
                             <p class="text-muted text-center small">
-                                Updated: {{ project.updated_at|date:"M d, Y" }}
+                                Updated: {{ project.updated_at | date:"M d, Y" }}
                             </p>
                             <div class="text-center mt-auto">
                                 <a href="{% url 'project_detail' project.id %}" class="btn btn-outline-primary btn-sm mt-2 w-50">

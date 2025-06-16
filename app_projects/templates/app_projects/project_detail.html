@@ -19,7 +19,7 @@
             <h2 class="card-title text-center mb-3">
                 <i class="fa-solid fa-diagram-project" style="font-size: 24px; color: #007bff;"></i>
                 {{ project.title }}</h2>
-            <p class="card-text">{{ project.description }}</p>
+            <p class="card-text">{{ project.description | linebreaks }}</p>
 
             <!-- Linea horizontal division -->
             <hr> 
