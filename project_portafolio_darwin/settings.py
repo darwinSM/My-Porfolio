@@ -29,14 +29,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 ENVIRONMENT = config('ENVIRONMENT', default='development')
 DEBUG = ENVIRONMENT != 'production'
-#CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
-#CLOUD_NAME = os.environ.get('CLOUDINARY_CLOUD_NAME')
-#API_KEY = os.environ.get('CLOUDINARY_API_KEY')
-#API_SECRET = os.environ.get('CLOUDINARY_API_SECRET')
-CLOUDINARY_URL = config('CLOUDINARY_URL', default="")
-CLOUD_NAME = config('CLOUDINARY_CLOUD_NAME', default="")
-API_KEY = config('CLOUDINARY_API_KEY', default="")
-API_SECRET = config('CLOUDINARY_API_SECRET', default="")
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+CLOUD_NAME = os.environ.get('CLOUDINARY_CLOUD_NAME')
+API_KEY = os.environ.get('CLOUDINARY_API_KEY')
+API_SECRET = os.environ.get('CLOUDINARY_API_SECRET')
+# CLOUDINARY_URL = config('CLOUDINARY_URL', default="")
+# CLOUD_NAME = config('CLOUDINARY_CLOUD_NAME', default="")
+# API_KEY = config('CLOUDINARY_API_KEY', default="")
+# API_SECRET = config('CLOUDINARY_API_SECRET', default="")
 
 logger.warning(f'entorno actual: {ENVIRONMENT}')
 
