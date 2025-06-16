@@ -43,3 +43,4 @@ class AboutMe(models.Model):
     
     technologies = models.ManyToManyField(Technology, blank=True, related_name="profiles")
 
+#Comentario
