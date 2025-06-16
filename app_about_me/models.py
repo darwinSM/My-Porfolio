@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 class Technology(models.Model):
     CATEGORY_CHOICES = [
     ("language", "Language"),
@@ -35,6 +34,7 @@ class AboutMe(models.Model):
     nationallity = models.CharField(max_length=50, blank=True, null=True)
     profile_picture = models.ImageField(upload_to="aboutme/picture/", blank=True, null=True)
     cv_pdf = models.FileField(upload_to="aboutme/cv/", blank=True, null=True)
+    #cv_pdf = CloudinaryField('CV PDF', resource_type='raw', folder='aboutme/cv/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
