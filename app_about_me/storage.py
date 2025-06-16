@@ -14,5 +14,6 @@ def get_pdf_cloudinary_storage():
         # Creamos la instancia. Ahora encontrará CLOUDINARY_STORAGE en settings.py.
         _pdf_cloudinary_storage_instance = MediaCloudinaryStorage(
             resource_type='raw',
-            access_mode='public')
+            options={'access_mode': 'public'}
+            )
     return _pdf_cloudinary_storage_instance
