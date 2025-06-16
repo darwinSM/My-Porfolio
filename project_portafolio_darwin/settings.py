@@ -38,6 +38,15 @@ CLOUD_NAME = config('CLOUDINARY_CLOUD_NAME', default="")
 API_KEY = config('CLOUDINARY_API_KEY', default="")
 API_SECRET = config('CLOUDINARY_API_SECRET', default="")
 
+# 🖼️ Archivos multimedia
+# >>> CAMBIO CLAVE 2: CLOUDINARY_STORAGE DEBE ESTAR DEFINIDO GLOBALMENTE (fuera de cualquier 'if/else') <<<
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME':CLOUD_NAME,
+    'API_KEY':API_KEY,
+    'API_SECRET':API_SECRET,
+}
+
+
 logger.warning(f'entorno actual: {ENVIRONMENT}')
 
 # 🌍 Hosts permitidos
