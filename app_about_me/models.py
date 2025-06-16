@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from app_about_me.storage import get_pdf_cloudinary_storage
 
 class Technology(models.Model):
     CATEGORY_CHOICES = [
@@ -23,8 +22,7 @@ class Technology(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.category}"
-    
-    
+     
     class Meta:
         verbose_name_plural = "technologies"
 
@@ -34,13 +32,9 @@ class AboutMe(models.Model):
     bio = models.TextField()
     nationallity = models.CharField(max_length=50, blank=True, null=True)
     profile_picture = models.ImageField(upload_to="aboutme/picture/", blank=True, null=True)
-    cv_pdf = models.FileField(upload_to="aboutme/cv/", 
-                              storage=get_pdf_cloudinary_storage, # <<< ¡Usa la función aquí (SIN PARÉNTESIS)
-                              blank=True, null=True)
+    cv_pdf = models.FileField(upload_to="aboutme/cv/", blank=True, null=True)
     #cv_pdf = CloudinaryField('CV PDF', resource_type='raw', folder='aboutme/cv/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
     technologies = models.ManyToManyField(Technology, blank=True, related_name="profiles")
-
-#Comentario

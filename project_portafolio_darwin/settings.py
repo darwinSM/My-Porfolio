@@ -173,12 +173,16 @@ if ENVIRONMENT == 'production':
         'CLOUD_NAME': CLOUD_NAME,
         'API_KEY': API_KEY,
         'API_SECRET': API_SECRET,
+        'MEDIA_TAG' :'media',
+        'SECURE':  True,
     }
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
     #MEDIA_URL = f"https://res.cloudinary.com/{os.environ.get('CLOUDINARY_CLOUD_NAME')}/"
-else:
+else: # ENVIRONMENT == 'development'
+    # --- CONFIGURACIÓN PARA DESARROLLO LOCAL ---
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage' 
     
 # 📧 Configuración de correo
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
