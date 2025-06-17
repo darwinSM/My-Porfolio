@@ -20,7 +20,7 @@
     <div class="col-md-6">
       <h2 class="mb-2">{{ profile.full_name }}</h2>
       <p class="text-muted">{{ profile.nationallity }}</p>
-      <p>{{ profile.bio }}</p>
+      <p>{{ profile.bio | linebreaks }}</p>
 
       {% if profile.cv_pdf %}
         <a href="{{ profile.cv_pdf.url }}" class="btn btn-outline-primary mt-2" target="_blank" download>

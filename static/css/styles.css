@@ -24,18 +24,53 @@
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave al cambiar de modo */
+    /* Transición suave para el color de fondo y el color del texto */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Ejemplo para otras partes de tu sitio */
+/* Ejemplo para otras partes de tu sitio, como las secciones o tarjetas que no son project-card */
 .section-card { /* Si tienes una clase para tus tarjetas o secciones */
     background-color: var(--card-background);
     border: 1px solid var(--border-color);
     color: var(--text-color);
+    /* Transición suave para el fondo, texto y bordes de las tarjetas/secciones */
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Asegúrate de usar var() en todas las reglas CSS donde quieras que el color cambie */
 a {
     color: var(--primary-color);
+}
+
+/* --- NUEVA SECCIÓN PARA LA SOMBRA EN CARDS DE PROYECTO --- */
+
+/* Estilos para las Cards de Proyecto (donde tienes la clase 'project-card') */
+/* Asegúrate de que tu HTML tenga <div class="card h-100 shadow rounded-4 border-0 project-card"> */
+.project-card {
+    /* Aquí puedes tener estilos adicionales específicos para tus tarjetas de proyecto si los necesitas */
+
+    /* Importante: Añadir una transición para la sombra.
+       Esto hará que la sombra cambie suavemente al alternar el modo. */
+    transition: box-shadow 0.3s ease;
+}
+
+/* REGLA PARA EL MODO OSCURO: Modificar la sombra de las tarjetas de proyecto */
+/* Cuando el elemento <body> tiene la clase 'dark-mode' Y un elemento tiene la clase 'project-card',
+   aplicamos una nueva sombra que sea visible en fondos oscuros. */
+.dark-mode .project-card {
+    /* Sobrescribe la sombra por defecto de Bootstrap (.shadow) cuando el modo oscuro está activo.
+       Usamos un color blanco (255, 255, 255) con una opacidad baja (0.15) para crear una sombra sutil y clara. */
+    box-shadow: 0 .5rem 1rem rgba(158, 154, 154, 0.742) !important;
+    /*
+       Explicación de 'box-shadow':
+       - El primer '0': Desplazamiento horizontal de la sombra (no se mueve a los lados).
+       - '.5rem': Desplazamiento vertical de la sombra (la sombra aparece por debajo del elemento).
+       - '1rem': El radio de difuminado (blur) de la sombra (qué tan difusa es la sombra).
+       - 'rgba(255, 255, 255, .15)': El color de la sombra.
+         - '255, 255, 255' son los valores RGB para el color blanco.
+         - '.15' es el valor 'alpha' (opacidad), donde 0 es completamente transparente y 1 es completamente opaco.
+           Un 0.15 (15%) la hace sutil.
+    */
+    /* El '!important' es usado aquí para asegurar que esta regla sobrescriba la clase 'shadow' de Bootstrap,
+       ya que las utilidades de Bootstrap a veces tienen una alta especificidad. */
 }
