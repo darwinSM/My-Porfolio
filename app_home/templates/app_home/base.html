@@ -14,8 +14,8 @@
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/messages.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
     {% block css %}
     {% endblock %}
 
@@ -65,6 +65,8 @@
     
     <!-- fontawesome.com -- Implementar iconos -->
     <script src="https://kit.fontawesome.com/182360ee44.js"     crossorigin="anonymous"></script>
+
+    <script src="{% static 'js/dark-mode.js' %}" ></script>
 
     
     {% block javascript %}

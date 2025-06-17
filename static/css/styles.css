@@ -1,0 +1,41 @@
+/* static/css/styles.css o tu archivo CSS principal */
+
+/* Variables para el Tema Claro (por defecto) */
+:root {
+    --background-color: #ffffff; /* Blanco */
+    --text-color: #333333;       /* Gris oscuro */
+    --primary-color: #007bff;    /* Azul para enlaces/botones */
+    --card-background: #f8f9fa; /* Fondo de tarjetas/secciones */
+    --border-color: #e0e0e0;     /* Bordes sutiles */
+    /* Agrega más variables según los colores que uses en tu sitio */
+}
+
+/* Variables para el Tema Oscuro (cuando la clase 'dark-mode' está activa) */
+.dark-mode {
+    --background-color: #121212; /* Negro muy oscuro */
+    --text-color: #e0e0e0;       /* Gris claro */
+    --primary-color: #87ceeb;    /* Un azul más claro */
+    --card-background: #1e1e1e; /* Fondo de tarjetas/secciones oscuro */
+    --border-color: #333333;     /* Bordes más oscuros */
+    /* Asegúrate de que estas variables correspondan a las del modo claro */
+}
+
+/* Aplica estas variables a tus elementos */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave al cambiar de modo */
+}
+
+/* Ejemplo para otras partes de tu sitio */
+.section-card { /* Si tienes una clase para tus tarjetas o secciones */
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Asegúrate de usar var() en todas las reglas CSS donde quieras que el color cambie */
+a {
+    color: var(--primary-color);
+}
